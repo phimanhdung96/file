@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Rose</title>
+	<style>
+		.rose {
+		  width: 0;
+		  height: 0;
+		  position: relative;
+		  margin: 100px auto;
+		  border-radius: 50%;
+		  border: 25px solid #ff007f;
+		}
+
+		.rose:before,
+		.rose:after {
+		  content: "";
+		  position: absolute;
+		  border-radius: 50%;
+		  background-color: #ff007f;
+		}
+
+		.rose:before {
+		  width: 20px;
+		  height: 20px;
+		  top: -10px;
+		  left: -10px;
+		}
+
+		.rose:after {
+		  width: 20px;
+		  height: 20px;
+		  top: -10px;
+		  right: -10px;
+		}
+
+		/* Animation */
+		.grow {
+		  animation: grow 5s ease-in-out;
+		}
+
+		@keyframes grow {
+		  0% {
+		    width: 0;
+		    height: 0;
+		  }
+		  50% {
+		    width: 150px;
+		    height: 150px;
+		  }
+		  100% {
+		    width: 100px;
+		    height: 100px;
+		  }
+		}
+
+		.shake {
+		  animation: shake 0.5s ease-in-out;
+		}
+
+		@keyframes shake {
+		  0% {
+		    transform: rotate(0);
+		  }
+		  50% {
+		    transform: rotate(-10deg);
+		  }
+		  100% {
+		    transform: rotate(0);
+		  }
+		}
+	</style>
+</head>
+<body>
+	<div class="rose"></div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+		  $('.rose').click(function() {
+		    $(this).addClass('grow shake');
+		  });
+		});
+	</script>
+</body>
+</html>
